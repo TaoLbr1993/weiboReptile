@@ -11,3 +11,4 @@ weiboAccount.txt
 /[0-9]{10}
 testrunlog.txt
 testProxy.txt
+ghostdriver.log
