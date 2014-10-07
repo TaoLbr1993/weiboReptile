@@ -1,6 +1,6 @@
 *.pyc
 *.png
-[0-9]{10}
+/[0-9]{10}
 test.py
 test.txt
 test2.txt
@@ -8,5 +8,6 @@ test2.py
 url.txt
 *.zip
 weiboAccount.txt
-[0-9]{10}//*
+/[0-9]{10}
 testrunlog.txt
+testProxy.txt
