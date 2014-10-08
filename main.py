@@ -23,11 +23,11 @@ accounts=[\
              #{'username':'buaatao5@163.com','pwd':'buaa12061021'}\
              ]
 print '####Getting Proxys####'
-#proxys=GetProxy.getProxys()
-proxys=['http://110.4.12.173:80',\
+proxys=GetProxy.getProxys()
+temp='''proxys=['http://110.4.12.173:80',\
         'http://218.254.1.13:80',\
         'http://203.78.36.232:9000',\
-        'http://182.239.127.140:80']
+        'http://182.239.127.140:80'] '''
 #print 5
 print 'Amounts of proxys:',len(proxys)
 print '####Getting Proxys finished####'

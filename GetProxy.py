@@ -58,7 +58,7 @@ def testProxy(proxy):
     opener = urllib2.build_opener(proxy_support, urllib2.HTTPHandler)
     urllib2.install_opener(opener)
     try:
-        html=urllib2.urlopen('http://www.baidu.com').read()
+        html=urllib2.urlopen('http://www.baidu.com',timeout=5).read()
     except:
         print '##Exception## Delete proxy:'+proxy
         res=False

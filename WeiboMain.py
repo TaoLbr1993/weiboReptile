@@ -12,21 +12,26 @@ import urllib
 
 class Proxy:
     def __init__(self):
-            self.list=[]
-            self.point=-1
+        self.list=[]
+        self.point=-1
     def add(self,s):
         self.list.append(s)
         
     def nextProxy(self):
-            self.point+=1
-            if self.point==len(self.list):
-                    self.point=0
-            return self.list[self.point]
+        self.point+=1
+        if self.point==len(self.list):
+            self.point=0
+        return self.list[self.point]
     def record(self,dataFile):  
-            dataFile.write('Proxy:'+self.list[self.point]+'\n')
-            print 'Proxy:'+self.list[self.point]
+        dataFile.write('Proxy:'+self.list[self.point]+'\n')
+        print 'Proxy:'+self.list[self.point]
     def getProxy(self):
-            return self.list[self.point]
+        return self.list[self.point]
+    def delProxy(self):
+        del list[self.point]
+        self.point-=1
+        if(self.point<0):
+            self.point=len(self.list)-1
 
 class Account:
     def __init__(self):
@@ -84,12 +89,12 @@ class WeiboLogin:
                     print 'unknown error'
                     return False
                 if retcode==4049 or retcode==2070:
-
-                    imageurl='http://login.sina.com.cn/cgi/pin.php?r=53324&s=0&p='+pcid
-                    image=urllib2.urlopen(imageurl)
-                    imageFile=open('check.png','wb')
-                    imageFile.write(image.read())
-                    imageFile.close()
+                    return False
+                    #imageurl='http://login.sina.com.cn/cgi/pin.php?r=53324&s=0&p='+pcid
+                    #image=urllib2.urlopen(imageurl)
+                    #imageFile=open('check.png','wb')
+                    #imageFile.write(image.read())
+                    #imageFile.close()
                     #print 'image path:'+os.getcwd()+'\check.png'
                     verifyCode=raw_input(u'请输入验证码image path:'+os.getcwd()+'\check.png\n')
                 if retcode==4040:
@@ -258,10 +263,16 @@ def relogin(user,pwd,proxylist,runlogFile):
         print '####login####    '+'username:'+username+'   proxy:'+proxylist.getProxy()
         runlogFile.write('####login####    '+'username:'+username+'   proxy:'+proxylist.getProxy()+'\n')
         try:
-            weiboMain.Login()
+            result=weiboMain.Login()
         except Exception,e:
-            print '####Login Error####    '+'username:'+username+'   proxy:'+proxylist.getProxy()
-            runlogFile.write('####Login Error####    '+'username:'+username+'   proxy:'+proxylist.getProxy()+'\n')
+            print '####Login Error|Delete Proxy####    '+'username:'+username+'   proxy:'+proxylist.getProxy()
+            runlogFile.write('####Login Error|Delete Proxy####    '+'username:'+username+'   proxy:'+proxylist.getProxy()+'\n')
+            proxylist.delProxy()
+            continue
+        if(result==False):
+            print '####Login Exception|Delete Proxy####    '+'username:'+username+'    proxy:'+proxylist.getProxy()
+            runlogFile.write('####Login Exception|Delete Proxy####    '+'username:'+username+'   proxy:'+proxylist.getProxy()+'\n')
+            proxylist.delProxy()
             continue
         
         content=urllib2.urlopen('http://weibo.com/1855335174/B96RtlApL?type=repost').read()
@@ -272,7 +283,7 @@ def relogin(user,pwd,proxylist,runlogFile):
         else:
             print '####Login Failed####    '+'username:'+username+'   proxy:'+proxylist.getProxy()
             runlogFile.write('####Login Failed####    '+'username:'+username+'   proxy:'+proxylist.getProxy()+'\n')  
-            
+            proxylist.delProxy()
             
             
             
