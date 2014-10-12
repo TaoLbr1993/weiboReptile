@@ -6,49 +6,62 @@ import sys
 import WeiboMain
 import testProxy
 import GetProxy
+import traceback
+import os
 
 #account=raw_input('Please input username\n')
 #pwd=raw_input('Please input password\n')
 checkey=random.randint(0,sys.maxint)
 proxylist=WeiboMain.Proxy()
-accountlist=WeiboMain.Account()
+originPath=os.getcwd()
+accountlist=WeiboMain.Account()
 accounts=[\
     #{'username':'a250879398@163.com','pwd':'librian930819'},\
-             {'username':'buaatao4@163.com','pwd':'buaa12061021'},\
-             {'username':'buaatao1@163.com','pwd':'buaa12061021'},\
-             {'username':'buaatao2@163.com','pwd':'buaa12061021'},\
-             {'username':'buaatao3@163.com','pwd':'buaa12061021'},\
-             {'username':'250879398@qq.com','pwd':'librian930819'}\
-             #{'username':'buaatao4@163.com','pwd':'buaa12061021'},\
-             #{'username':'buaatao5@163.com','pwd':'buaa12061021'}\
-             ]
-print '####Getting Proxys####'
-proxys=GetProxy.getProxys()
-temp='''proxys=['http://110.4.12.173:80',\
-        'http://218.254.1.13:80',\
-        'http://203.78.36.232:9000',\
-        'http://182.239.127.140:80'] '''
-#print 5
-print 'Amounts of proxys:',len(proxys)
-print '####Getting Proxys finished####'
+    {'username':'buaatao4@163.com','pwd':'buaa12061021'},\
+    {'username':'buaatao1@163.com','pwd':'buaa12061021'},\
+    {'username':'buaatao2@163.com','pwd':'buaa12061021'},\
+    {'username':'buaatao3@163.com','pwd':'buaa12061021'},\
+    {'username':'250879398@qq.com','pwd':'librian930819'}\
+    #{'username':'buaatao4@163.com','pwd':'buaa12061021'},\
+    #{'username':'buaatao5@163.com','pwd':'buaa12061021'}\
+]
+try:
+    print '####Getting Proxys####'
+    proxys=GetProxy.getProxys()
+    temp='''proxys=['http://110.4.12.173:80',\
+            'http://218.254.1.13:80',\
+            'http://203.78.36.232:9000',\
+            'http://182.239.127.140:80'] '''
+    #print 5
+    print 'Amounts of proxys:',len(proxys)
+    print '####Getting Proxys finished####' 
 
-for account in accounts:
-    accountlist.add(account)
-    
-for proxy in proxys:
-    #if testProxy.testProxy(proxy):
-    proxylist.add(proxy)
+    for account in accounts:
+	accountlist.add(account)
 
-urlFile=open('url.txt','r')
+    for proxy in proxys:
+	#if testProxy.testProxy(proxy):
+	proxylist.add(proxy)
 
-figure=0
-for line in open('url.txt','r'):
-    line=urlFile.readline()
-    print '####'+line
-    figure+=1
-    if line[-1]=='\n':
-        RepostMain.RepostMain(accountlist,line[:-1],checkey,figure,proxylist)
-    else:
-        RepostMain.RepostMain(accountlist,line,checkey,figure,proxylist)
-    print '####crawing over\n\n'
-    time.sleep(10)
+    urlFile=open('url.txt','r')
+
+    figure=0
+    for line in open('url.txt','r'):
+	line=urlFile.readline()
+	print '####'+line
+	figure+=1
+	if line[-1]=='\n':
+	    RepostMain.RepostMain(accountlist,line[:-1],checkey,figure,proxylist)
+	else:
+	    RepostMain.RepostMain(accountlist,line,checkey,figure,proxylist)
+	print '####crawing over\n\n'
+	time.sleep(10)	  
+except Exception,e:
+    os.chrdir(originPath)
+    excfile=open('exception.txt','a')
+    var=traceback.format_exc()
+
+    excfile.write('####'+time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())+'\n'+var)
+    excfile.close()
+    print 'length of proxylist',proxylist.list
+    raise e

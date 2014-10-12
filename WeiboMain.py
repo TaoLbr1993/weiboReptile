@@ -19,7 +19,7 @@ class Proxy:
         
     def nextProxy(self):
         self.point+=1
-        if self.point==len(self.list):
+        if self.point>=len(self.list):
             self.point=0
         return self.list[self.point]
     def record(self,dataFile):  
@@ -28,7 +28,7 @@ class Proxy:
     def getProxy(self):
         return self.list[self.point]
     def delProxy(self):
-        del list[self.point]
+        del self.list[self.point]
         self.point-=1
         if(self.point<0):
             self.point=len(self.list)-1
@@ -76,7 +76,7 @@ class WeiboLogin:
 
             req = urllib2.Request(self.loginUrl, postData, self.postHeader)
             print "========>Posting request..."
-            result = urllib2.urlopen(req)#
+            result = urllib2.urlopen(req,timeout=30)#
             text = result.read()
             #print 'text='+text
             retcode=getRetcode(text)
@@ -96,19 +96,19 @@ class WeiboLogin:
                     #imageFile.write(image.read())
                     #imageFile.close()
                     #print 'image path:'+os.getcwd()+'\check.png'
-                    verifyCode=raw_input(u'请输入验证码image path:'+os.getcwd()+'\check.png\n')
+                    #verifyCode=raw_input(u'请输入验证码image path:'+os.getcwd()+'\check.png\n')
                 if retcode==4040:
                     return False
                 postData = WeiboEncode.PostEncode(self.userName, self.passWord, serverTime, nonce, pubkey, rsakv,pcid,verifyCode)
                 req=urllib2.Request(self.loginUrl,postData,self.postHeader)
-                result=urllib2.urlopen(req)
+                result=urllib2.urlopen(req,timeout=30)
                 text=result.read()
                 retcode=getRetcode(text)
                 reason=getReason(text)
                 print 'retcode',retcode
             try:
                 loginUrl = WeiboSearch.sRedirectData(text)#
-                urllib2.urlopen(loginUrl)
+                urllib2.urlopen(loginUrl,timeout=40)
             except:
                 print 'Login error!'
                 return False
@@ -135,7 +135,7 @@ class WeiboLogin:
         "Get server time and nonce, which are used to encode the password"
 
         print "========>Getting server time and nonce..."
-        serverData = urllib2.urlopen(self.serverUrl,timeout=100).read()#
+        serverData = urllib2.urlopen(self.serverUrl,timeout=30).read()#
         print '========>'+serverData
 
         try:
@@ -211,7 +211,7 @@ def get_content(url,runlogFile,accountlist,proxylist):
     htmlContent=''
     for i in wait_list_min:
         try:
-            htmlContent=urllib2.urlopen(url).read()
+            htmlContent=urllib2.urlopen(url,timeout=30).read()
         except Exception,e:
             good=False
             urlerror=True
@@ -245,7 +245,7 @@ def relogin(user,pwd,proxylist,runlogFile):
             runlogFile.write('####Login Error####    '+proxylist.getProxy()+'\n')
             continue
         
-        content=urllib2.urlopen('http://weibo.com/1855335174/B96RtlApL?type=repost').read()
+        content=urllib2.urlopen('http://weibo.com/1855335174/B96RtlApL?type=repost',timeout=30).read()
         pattern=re.compile(r'''下一页''')
         result=pattern.search(content)
         if result is not None:
@@ -267,15 +267,20 @@ def relogin(user,pwd,proxylist,runlogFile):
         except Exception,e:
             print '####Login Error|Delete Proxy####    '+'username:'+username+'   proxy:'+proxylist.getProxy()
             runlogFile.write('####Login Error|Delete Proxy####    '+'username:'+username+'   proxy:'+proxylist.getProxy()+'\n')
-            proxylist.delProxy()
+            #proxylist.delProxy()
             continue
         if(result==False):
             print '####Login Exception|Delete Proxy####    '+'username:'+username+'    proxy:'+proxylist.getProxy()
             runlogFile.write('####Login Exception|Delete Proxy####    '+'username:'+username+'   proxy:'+proxylist.getProxy()+'\n')
-            proxylist.delProxy()
+            #proxylist.delProxy()
             continue
-        
-        content=urllib2.urlopen('http://weibo.com/1855335174/B96RtlApL?type=repost').read()
+        try:
+            content=urllib2.urlopen('http://weibo.com/1855335174/B96RtlApL?type=repost',timeout=30).read()
+        except Exception:
+            print '####CheckException####    '+'username:'+username+'    proxy:'+proxylist.getProxy()
+            runlogFile.write('####CheckException####    '+'username:'+username+'    proxy:'+proxylist.getProxy()+'\n')
+            #proxylist.delProxy()
+            continue
         pattern=re.compile(r'''下一页''')
         result=pattern.search(content)
         if result is not None:
@@ -283,7 +288,7 @@ def relogin(user,pwd,proxylist,runlogFile):
         else:
             print '####Login Failed####    '+'username:'+username+'   proxy:'+proxylist.getProxy()
             runlogFile.write('####Login Failed####    '+'username:'+username+'   proxy:'+proxylist.getProxy()+'\n')  
-            proxylist.delProxy()
+            #proxylist.delProxy()
             
             
             
