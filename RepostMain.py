@@ -21,11 +21,11 @@ def seconds_to_hms(seconds):
     return result
 
 
-def RepostMain(accountlist,url_to_craw,checkey,figure,proxylist):
+def RepostMain(accountlist,url_to_craw,checkey,figure,proxylist,startTime,pauseTime):
     time.clock()
     starttime=time.clock()
     #请求输入账号密码目标url
-
+    
     #account=raw_input('Please input username\n')
     #pwd=raw_input('Please input password\n')
     #url_to_craw=raw_input("Please input url\n")
@@ -118,6 +118,13 @@ def RepostMain(accountlist,url_to_craw,checkey,figure,proxylist):
 		    denied+=1
 		status=get_content_result['good']&status
 		WeiboMain.get_info(htmlContent,dataFile)
+		if(time.localtime()[3]==pauseTime['hour'] and time.localtime()[4]==pauseTime['minute']):
+		    print 'Time to Wait'
+		    while True:
+			time.sleep(30)
+			if time.localtime()[3]==startTime['hour'] and time.localtime()[4]==startTime['minute']:
+			    print 'Start again'
+			    break
 	    now_time=time.clock()
 	    strtime=time.localtime(time.time())
 	    if strtime[4]<30:

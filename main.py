@@ -15,6 +15,15 @@ checkey=random.randint(0,sys.maxint)
 proxylist=WeiboMain.Proxy()
 originPath=os.getcwd()
 accountlist=WeiboMain.Account()
+startTime={'hour':0,'minute':0,'second':0}
+pauseTime={'hour':12,'minute':0,'second':0}
+print 'Waiting to begin'
+while True:
+    time.sleep(30)
+    if  time.localtime()[3]==startTime['hour'] and time.localtime()[4]==startTime['minute']:
+	print "It's time to go"
+	break
+    
 accounts=[\
     #{'username':'a250879398@163.com','pwd':'librian930819'},\
     {'username':'buaatao4@163.com','pwd':'buaa12061021'},\
@@ -51,7 +60,7 @@ try:
 	print '####'+line
 	figure+=1
 	if line[-1]=='\n':
-	    RepostMain.RepostMain(accountlist,line[:-1],checkey,figure,proxylist)
+	    RepostMain.RepostMain(accountlist,line[:-1],checkey,figure,proxylist,startTime=startTime,pauseTime=pauseTime)
 	else:
 	    RepostMain.RepostMain(accountlist,line,checkey,figure,proxylist)
 	print '####crawing over\n\n'
