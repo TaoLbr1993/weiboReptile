@@ -4849,4 +4849,246 @@ check key:1604777356
 ###WrongContent###sleep 0.5minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=9940
 ###WrongContent###sleep 1.2minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=9940
 第463部分:起始页9930 步长10页 用时1219.56700013seconds Proxy:http://110.4.12.173:80 time:2014-10-13 11:59:15
-####denideOverflow####    http://110.4.12.173:80####login####    username:250879398@qq.com   proxy:http:
+####denideOverflow####    http://110.4.12.173:80####login####    username:250879398@qq.com   proxy:http:=============================================================
+craw URL:http://weibo.com/1191258123/BdNJiEfoF?type=repost
+operating time:2014-10-13 22:03:26
+check key:1139215540
+
+####login####    username:buaatao4@163.com   proxy:http://110.4.12.173:80
+####Login Exception|Delete Proxy####    username:buaatao4@163.com   proxy:http://110.4.12.173:80
+####login####    username:buaatao1@163.com   proxy:http://203.78.36.232:9000
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=1
+####login####    username:buaatao2@163.com   proxy:http://182.239.127.140:80
+####Login Error|Delete Proxy####    username:buaatao2@163.com   proxy:http://182.239.127.140:80
+####login####    username:buaatao3@163.com   proxy:http://182.239.95.137:80
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=1
+=============================================================
+craw URL:http://weibo.com/1191258123/BdNJiEfoF?type=repost
+operating time:2014-10-13 22:28:30
+check key:1232407273
+
+####login####    username:buaatao4@163.com   proxy:http://110.4.12.173:80
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=1
+####login####    username:buaatao1@163.com   proxy:http://203.78.36.232:9000
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=1
+=============================================================
+craw URL:http://weibo.com/1191258123/BdNJiEfoF?type=repost
+operating time:2014-10-13 22:31:31
+check key:462873840
+
+####login####    username:buaatao4@163.com   proxy:http://110.4.12.173:80
+####Login Exception|Delete Proxy####    username:buaatao4@163.com   proxy:http://110.4.12.173:80
+####login####    username:buaatao1@163.com   proxy:http://203.78.36.232:9000
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost
+####login####    username:buaatao2@163.com   proxy:http://182.239.127.140:80
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=3
+####login####    username:buaatao3@163.com   proxy:http://182.239.95.137:80
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=3
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=4
+####login####    username:250879398@qq.com   proxy:http://110.4.12.173:80
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=4
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=8
+####login####    username:buaatao4@163.com   proxy:http://203.78.36.232:9000
+####Login Error|Delete Proxy####    username:buaatao4@163.com   proxy:http://203.78.36.232:9000
+####login####    username:buaatao1@163.com   proxy:http://182.239.127.140:80
+####CheckException####    username:buaatao1@163.com    proxy:http://182.239.127.140:80
+####login####    username:buaatao2@163.com   proxy:http://182.239.95.137:80
+####Login Exception|Delete Proxy####    username:buaatao2@163.com   proxy:http://182.239.95.137:80
+####login####    username:buaatao3@163.com   proxy:http://110.4.12.173:80
+####CheckException####    username:buaatao3@163.com    proxy:http://110.4.12.173:80
+####login####    username:250879398@qq.com   proxy:http://203.78.36.232:9000
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=8
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=9
+第1部分:起始页0 步长10页 用时182.344302975seconds Proxy:http://203.78.36.232:9000 time:2014-10-13 22:35:53
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=11
+####login####    username:buaatao4@163.com   proxy:http://182.239.127.140:80
+####Login Error|Delete Proxy####    username:buaatao4@163.com   proxy:http://182.239.127.140:80
+####login####    username:buaatao1@163.com   proxy:http://182.239.95.137:80
+####Login Error|Delete Proxy####    username:buaatao1@163.com   proxy:http://182.239.95.137:80
+####login####    username:buaatao2@163.com   proxy:http://110.4.12.173:80
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=11
+第2部分:起始页10 步长10页 用时99.5270760459seconds Proxy:http://110.4.12.173:80 time:2014-10-13 22:37:33
+####denideOverflow####    http://110.4.12.173:80####login####    username:buaatao3@163.com   proxy:http://203.78.36.232:9000
+####Login Exception|Delete Proxy####    username:buaatao3@163.com   proxy:http://203.78.36.232:9000
+####login####    username:250879398@qq.com   proxy:http://182.239.127.140:80
+####Login Error|Delete Proxy####    username:250879398@qq.com   proxy:http://182.239.127.140:80
+####login####    username:buaatao4@163.com   proxy:http://182.239.95.137:80
+####Login Exception|Delete Proxy####    username:buaatao4@163.com   proxy:http://182.239.95.137:80
+####login####    username:buaatao1@163.com   proxy:http://110.4.12.173:80
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=30
+####login####    username:buaatao2@163.com   proxy:http://203.78.36.232:9000
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=30
+第3部分:起始页20 步长10页 用时112.775572366seconds Proxy:http://203.78.36.232:9000 time:2014-10-13 22:39:26
+第4部分:起始页30 步长10页 用时30.1111265804seconds Proxy:http://203.78.36.232:9000 time:2014-10-13 22:39:56
+=============================================================
+craw URL:http://weibo.com/1191258123/BdNJiEfoF?type=repost
+operating time:2014-10-13 22:57:45
+check key:1520947878
+
+####login####    username:buaatao4@163.com   proxy:http://110.4.12.173:80
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=7
+####login####    username:buaatao1@163.com   proxy:http://203.78.36.232:9000
+####CheckException####    username:buaatao1@163.com    proxy:http://203.78.36.232:9000
+####login####    username:buaatao2@163.com   proxy:http://182.239.127.140:80
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=7
+第1部分:起始页0 步长10页 用时115.412121269seconds Proxy:http://182.239.127.140:80 time:2014-10-13 22:59:54
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=20
+####login####    username:buaatao3@163.com   proxy:http://182.239.95.137:80
+####CheckException####    username:buaatao3@163.com    proxy:http://182.239.95.137:80
+####login####    username:250879398@qq.com   proxy:http://110.4.12.173:80
+####CheckException####    username:250879398@qq.com    proxy:http://110.4.12.173:80
+####login####    username:buaatao4@163.com   proxy:http://203.78.36.232:9000
+####Login Exception|Delete Proxy####    username:buaatao4@163.com   proxy:http://203.78.36.232:9000
+####login####    username:buaatao1@163.com   proxy:http://182.239.127.140:80
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=20
+第2部分:起始页10 步长10页 用时218.726569308seconds Proxy:http://182.239.127.140:80 time:2014-10-13 23:03:33
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=21
+####login####    username:buaatao2@163.com   proxy:http://182.239.95.137:80
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=21
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=23
+####login####    username:buaatao3@163.com   proxy:http://110.4.12.173:80
+####CheckException####    username:buaatao3@163.com    proxy:http://110.4.12.173:80
+####login####    username:250879398@qq.com   proxy:http://203.78.36.232:9000
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=23
+第3部分:起始页20 步长10页 用时123.996651053seconds Proxy:http://203.78.36.232:9000 time:2014-10-13 23:05:37
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=32
+####login####    username:buaatao4@163.com   proxy:http://182.239.127.140:80
+####Login Exception|Delete Proxy####    username:buaatao4@163.com   proxy:http://182.239.127.140:80
+####login####    username:buaatao1@163.com   proxy:http://182.239.95.137:80
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=32
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=35
+####login####    username:buaatao2@163.com   proxy:http://110.4.12.173:80
+####Login Exception|Delete Proxy####    username:buaatao2@163.com   proxy:http://110.4.12.173:80
+####login####    username:buaatao3@163.com   proxy:http://203.78.36.232:9000
+####Login Exception|Delete Proxy####    username:buaatao3@163.com   proxy:http://203.78.36.232:9000
+####login####    username:250879398@qq.com   proxy:http://182.239.127.140:80
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=35
+第4部分:起始页30 步长10页 用时278.229627984seconds Proxy:http://182.239.127.140:80 time:2014-10-13 23:10:15
+####denideOverflow####    http://182.239.127.140:80####login####    username:buaatao4@163.com   proxy:http://182.239.95.137:80
+=============================================================
+craw URL:http://weibo.com/1191258123/BdNJiEfoF?type=repost
+operating time:2014-10-14 17:41:39
+check key:1990998761
+
+####login####    username:buaatao4@163.com   proxy:http://110.4.12.173:80
+####CheckException####    username:buaatao4@163.com    proxy:http://110.4.12.173:80
+####login####    username:buaatao1@163.com   proxy:http://203.78.36.232:9000
+第1部分:起始页0 步长10页 用时27.0896714551seconds Proxy:http://203.78.36.232:9000 time:2014-10-14 17:42:38
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=26
+####login####    username:buaatao2@163.com   proxy:http://182.239.127.140:80
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=26
+第2部分:起始页10 步长20页 用时145.094462613seconds Proxy:http://182.239.127.140:80 time:2014-10-14 17:45:03
+第3部分:起始页30 步长10页 用时74.6641423505seconds Proxy:http://182.239.127.140:80 time:2014-10-14 17:46:18
+=============================================================
+craw URL:http://weibo.com/1191258123/BdNJiEfoF?type=repost
+operating time:2014-10-14 18:13:58
+check key:751432334
+
+####login####    username:buaatao4@163.com   proxy:http://110.4.12.173:80
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=5
+####login####    username:buaatao1@163.com   proxy:http://203.78.36.232:9000
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=5
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=10
+第1部分:起始页0 步长10页 用时68.6489924378seconds Proxy:http://203.78.36.232:9000 time:2014-10-14 18:15:11
+第2部分:起始页10 步长10页 用时18.0004743412seconds Proxy:http://203.78.36.232:9000 time:2014-10-14 18:15:29
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=29
+####login####    username:buaatao2@163.com   proxy:http://182.239.127.140:80
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=29
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=31
+第3部分:起始页20 步长20页 用时93.9772173442seconds Proxy:http://182.239.127.140:80 time:2014-10-14 18:17:03
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=42
+=============================================================
+craw URL:http://weibo.com/1191258123/BdNJiEfoF?type=repost
+operating time:2014-10-14 20:00:15
+check key:2073000004
+
+####login####    username:buaatao4@163.com   proxy:http://110.4.12.173:80
+=============================================================
+craw URL:http://weibo.com/1191258123/BdNJiEfoF?type=repost
+operating time:2014-10-14 20:01:00
+check key:1436759285
+
+####login####    username:buaatao4@163.com   proxy:http://110.4.12.173:80
+####CheckException####    username:buaatao4@163.com    proxy:http://110.4.12.173:80
+####login####    username:buaatao1@163.com   proxy:http://203.78.36.232:9000
+####Login Exception|Delete Proxy####    username:buaatao1@163.com   proxy:http://203.78.36.232:9000
+####login####    username:buaatao2@163.com   proxy:http://182.239.127.140:80
+=============================================================
+craw URL:http://weibo.com/1191258123/BdNJiEfoF?type=repost
+operating time:2014-10-14 20:03:23
+check key:745092456
+
+####login####    username:buaatao4@163.com   proxy:http://110.4.12.173:80
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=5
+####login####    username:buaatao1@163.com   proxy:http://203.78.36.232:9000
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=5
+第1部分:起始页0 步长10页 用时71.602195981seconds Proxy:http://203.78.36.232:9000 time:2014-10-14 20:04:50
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=16
+####login####    username:buaatao2@163.com   proxy:http://182.239.127.140:80
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=16
+第2部分:起始页10 步长10页 用时73.0260615448seconds Proxy:http://182.239.127.140:80 time:2014-10-14 20:06:03
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=27
+####login####    username:buaatao3@163.com   proxy:http://182.239.95.137:80
+####Login Exception|Delete Proxy####    username:buaatao3@163.com   proxy:http://182.239.95.137:80
+####login####    username:250879398@qq.com   proxy:http://110.4.12.173:80
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=27
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=28
+####login####    username:buaatao4@163.com   proxy:http://203.78.36.232:9000
+####CheckException####    username:buaatao4@163.com    proxy:http://203.78.36.232:9000
+####login####    username:buaatao1@163.com   proxy:http://182.239.127.140:80
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=28
+第3部分:起始页20 步长10页 用时147.630667607seconds Proxy:http://182.239.127.140:80 time:2014-10-14 20:08:30
+第4部分:起始页30 步长10页 用时61.9021500641seconds Proxy:http://182.239.127.140:80 time:2014-10-14 20:09:32
+=============================================================
+craw URL:http://weibo.com/1191258123/BdNJiEfoF?type=repost
+operating time:2014-10-16 22:11:09
+check key:517348883
+
+####login####    username:buaatao4@163.com   proxy:http://182.239.127.140:80
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost
+####login####    username:buaatao1@163.com   proxy:http://182.239.95.137:80
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=2
+####login####    username:buaatao2@163.com   proxy:http://182.239.127.137:80
+####Login Error|Delete Proxy####    username:buaatao2@163.com   proxy:http://182.239.127.137:80
+####login####    username:buaatao3@163.com   proxy:http://182.239.95.139:80
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=2
+###Exception###sleep 0.5minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=2
+####login####    username:250879398@qq.com   proxy:http://182.239.127.140:80
+####CheckException####    username:250879398@qq.com    proxy:http://182.239.127.140:80
+####login####    username:buaatao4@163.com   proxy:http://182.239.95.137:80
+###WrongContent###sleep 0.5minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=2
+=============================================================
+craw URL:http://weibo.com/1191258123/BdNJiEfoF?type=repost
+operating time:2014-10-16 23:07:25
+check key:1917952481
+
+####login####    username:buaatao4@163.com   proxy:http://203.78.36.232:9000
+####CheckException####    username:buaatao4@163.com    proxy:http://203.78.36.232:9000
+####login####    username:buaatao1@163.com   proxy:http://182.239.127.140:80
+####Login Error|Delete Proxy####    username:buaatao1@163.com   proxy:http://182.239.127.140:80
+####login####    username:buaatao2@163.com   proxy:http://182.239.95.137:80
+####Login Error|Delete Proxy####    username:buaatao2@163.com   proxy:http://182.239.95.137:80
+####login####    username:buaatao3@163.com   proxy:http://182.239.127.137:80
+####Login Exception|Delete Proxy####    username:buaatao3@163.com   proxy:http://182.239.127.137:80
+####login####    username:250879398@qq.com   proxy:http://182.239.95.139:80
+=============================================================
+craw URL:http://weibo.com/1191258123/BdNJiEfoF?type=repost
+operating time:2014-10-17 10:00:10
+check key:1309815630
+
+####login####    username:buaatao4@163.com   proxy:http://110.4.12.173:80
+####Login Exception|Delete Proxy####    username:buaatao4@163.com   proxy:http://110.4.12.173:80
+####login####    username:buaatao1@163.com   proxy:http://203.78.36.232:9000
+###Exception###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=1
+####login####    username:buaatao2@163.com   proxy:http://182.239.127.140:80
+###WrongContent###sleep 0.1minutes when get http://weibo.com/1191258123/BdNJiEfoF?type=repost&page=1
+=============================================================
+craw URL:http://weibo.com/1191258123/BdNJiEfoF?type=repost
+operating time:2014-10-17 10:07:44
+check key:625657028
+
+####login####    username:buaatao4@163.com   proxy:http://110.4.12.173:80
+####Login Exception|Delete Proxy####    username:buaatao4@163.com   proxy:http://110.4.12.173:80
+####login####    username:buaatao1@163.com   proxy:http://203.78.36.232:9000

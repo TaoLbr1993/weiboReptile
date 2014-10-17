@@ -11,7 +11,7 @@ import os
 import time
 import pylab as pl
 import pickle
-
+import MySQLdb
 
 def seconds_to_hms(seconds):
     hour=int(seconds/3600)
@@ -36,7 +36,7 @@ def RepostMain(accountlist,url_to_craw,checkey,figure,proxylist,startTime,pauseT
     filename=result.group(2)
 
     origdir=os.getcwd()
-    
+    #Statics
     if os.path.exists('statics.data'):#static is a list with 48 elements.
 	staticsfile=open('statics.data','r')
 	statics=pickle.load(f)
@@ -49,7 +49,25 @@ def RepostMain(accountlist,url_to_craw,checkey,figure,proxylist,startTime,pauseT
     else:
 	os.mkdir(userid)
     os.chdir(newdir)
-
+    
+    #建立数据库
+    conn=MySQLdb.connect(host='localhost',user='root',passwd='root',charset='utf8')
+    cursor=conn.cursor()
+    print 10
+    try:
+	print 123123
+	cursor.execute("""CREATE database """+"userid"+userid+";")
+    except Exception,e:
+	print 'The Database exists'
+    #print 23
+    conn.select_db("userid"+userid)
+    #print 234
+    try:
+	cursor.execute('set names gbk;')
+	cursor.execute('create table '+filename+' (id CHAR(50),time DATETIME, content TEXT) ENGINE=MyISAM DEFAULT CHARSET=gbk')
+    except Exception,e:
+	print "The Table exists\nuserid:"+userid+'\nWarning:This Information of Repost has been reptiled. The following reptiling will make data repeated.'
+    #print 234234
     dataFile=open(filename+'.txt','w')
     runlogFile=open('runlog.txt','a')
     runlogFile.write('=============================================================\n')
@@ -83,6 +101,8 @@ def RepostMain(accountlist,url_to_craw,checkey,figure,proxylist,startTime,pauseT
     #dataFile.write(repost_info[0])
     pages=WeiboMain.get_amounts_pages(htmlContent)
     repost_time=time.strptime(WeiboMain.get_reposts_time(htmlContent),'%Y-%m-%d %H:%M')
+    
+    ####Some vars when reptiling.
     pagegap=1.5
     partgap=3.1
     denied=0
@@ -117,7 +137,8 @@ def RepostMain(accountlist,url_to_craw,checkey,figure,proxylist,startTime,pauseT
 		if get_content_result['good']==False:
 		    denied+=1
 		status=get_content_result['good']&status
-		WeiboMain.get_info(htmlContent,dataFile)
+		WeiboMain.get_info(htmlContent,dataFile,cursor=cursor,filename=filename)
+		conn.commit()
 		if(time.localtime()[3]==pauseTime['hour'] and time.localtime()[4]==pauseTime['minute']):
 		    print 'Time to Wait'
 		    while True:
@@ -178,7 +199,8 @@ def RepostMain(accountlist,url_to_craw,checkey,figure,proxylist,startTime,pauseT
     else:
 	pass
     dataFile.close()
-
+    conn.commit()
+    cursor.close()
 
 
 

@@ -15,15 +15,20 @@ checkey=random.randint(0,sys.maxint)
 proxylist=WeiboMain.Proxy()
 originPath=os.getcwd()
 accountlist=WeiboMain.Account()
+
+#### =========Operation time control
 startTime={'hour':0,'minute':0,'second':0}
 pauseTime={'hour':12,'minute':0,'second':0}
+
 print 'Waiting to begin'
+
 while True:
     time.sleep(30)
     if  time.localtime()[3]==startTime['hour'] and time.localtime()[4]==startTime['minute']:
 	print "It's time to go"
 	break
     
+#### ==========Add acounts here.
 accounts=[\
     #{'username':'a250879398@163.com','pwd':'librian930819'},\
     {'username':'buaatao4@163.com','pwd':'buaa12061021'},\
@@ -36,11 +41,12 @@ accounts=[\
 ]
 try:
     print '####Getting Proxys####'
-    proxys=GetProxy.getProxys()
-    temp='''proxys=['http://110.4.12.173:80',\
-            'http://218.254.1.13:80',\
+
+    proxys=['http://110.4.12.173:80',\
             'http://203.78.36.232:9000',\
-            'http://182.239.127.140:80'] '''
+            'http://182.239.127.140:80',\
+            'http://182.239.95.137:80'] 
+    proxys=GetProxy.getProxys()
     #print 5
     print 'Amounts of proxys:',len(proxys)
     print '####Getting Proxys finished####' 
@@ -66,11 +72,11 @@ try:
 	print '####crawing over\n\n'
 	time.sleep(10)	  
 except Exception,e:
-    os.chrdir(originPath)
+    os.chdir(originPath)
     excfile=open('exception.txt','a')
     var=traceback.format_exc()
 
     excfile.write('####'+time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())+'\n'+var)
     excfile.close()
-    print 'length of proxylist',proxylist.list
+    #print 'length of proxylist',proxylist.list
     raise e
