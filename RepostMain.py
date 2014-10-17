@@ -139,7 +139,10 @@ def RepostMain(accountlist,url_to_craw,checkey,figure,proxylist,startTime,pauseT
 		status=get_content_result['good']&status
 		WeiboMain.get_info(htmlContent,dataFile,cursor=cursor,filename=filename)
 		conn.commit()
+<<<<<<< HEAD
 		#### ==========TimeControl
+=======
+>>>>>>> weiboReptile/master
 		if(time.localtime()[3]==pauseTime['hour'] and time.localtime()[4]==pauseTime['minute']):
 		    print 'Time to Wait'
 		    while True:

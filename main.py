@@ -16,13 +16,20 @@ proxylist=WeiboMain.Proxy()
 originPath=os.getcwd()
 accountlist=WeiboMain.Account()
 
+<<<<<<< HEAD
 #### =========Time Control
+=======
+#### =========Operation time control
+>>>>>>> weiboReptile/master
 startTime={'hour':0,'minute':0,'second':0}
 pauseTime={'hour':12,'minute':0,'second':0}
 
 print 'Waiting to begin'
 
+<<<<<<< HEAD
 #### ==========Time Control
+=======
+>>>>>>> weiboReptile/master
 while True:
     time.sleep(30)
     if  time.localtime()[3]==startTime['hour'] and time.localtime()[4]==startTime['minute']:
