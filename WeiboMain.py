@@ -157,8 +157,9 @@ def get_amounts_pages(content):#return amounts of pages according content(source
         return string.atoi(pages[len(pages)-1])
     except IndexError,e:
         return -1
-def get_info(content,data_file):#get infomamtion according to content(source code) and put it into data_file
+def get_info(content,data_file,cursor,filename):#get infomamtion according to content(source code) and put it into data_file
 # 
+
     all_contents=content.split('<!--转发列表-->')
     sub_content=all_contents[1]
     contents=re.split(r'<dd>',sub_content)
@@ -173,29 +174,43 @@ def get_info(content,data_file):#get infomamtion according to content(source cod
             time=result.group(3)
             try:
                 if isinstance(name,unicode):
+                    #print 'name-->unicode'
                     final_name=name.encode('gb2312')
                 else:
+                    #print 'name-->not unicode'
                     final_name=name.decode('utf-8').encode('cp936')
             except UnicodeEncodeError,e:
-                final_name=name
+                #print 'name-->error'
+                final_name='Warning!InvalidString'
             try:
                 if isinstance(contents,unicode):
+                    #print 'contents-->unicode'
                     final_contents=contents.encode('gb2312')
                 else:
+                    #print 'contents-->not unicode'
                     final_contents=contents.decode('utf-8').encode('cp936')
             except UnicodeEncodeError,e:
-                final_contents=contents
+                #print 'contents-->error'
+                final_contents='Warning!InvalidString'
             try:
                 if isinstance(time,unicode):
+                    #print 'time-->unicode'
                     final_time=time.encode('gb2312')
                 else:
+                    #print 'time-->not unicode'
                     final_time=time.decode('utf-8').encode('cp936')
             except UnicodeEncodeError,e:
+                #print 'time-->error'
                 final_time=time
             #print result.group(1).decode('utf-8').encode('cp936')
+            #data_file.write(final_name+' # '+final_time+' # '+final_contents+' \n')
+            #data_file.write('##################\n')            
+            sqlCommand='insert into '+filename+'(id,time,content) values(%s,%s,%s);'
+            param=(final_name,final_time,final_contents)
+            #cursor.execute('set names gbk;')
+            n=cursor.execute(sqlCommand,param)
 
-            data_file.write(final_name+' # '+final_time+' # '+final_contents+' \n')
-            data_file.write('##################\n')
+            #n to be used later
         #data_file.write(record[0]+' '+record[1]+' '+record[2]+'\n')
     #info=re.findall(pattern,sub_content)
 
@@ -232,6 +247,7 @@ def get_content(url,runlogFile,accountlist,proxylist):
             print '###WrongContent###sleep '+str(i)+'minutes when get '+url
             #print htmlContent
             time.sleep(i*60)
+        
 
 def relogin(user,pwd,proxylist,runlogFile):
     while True:
