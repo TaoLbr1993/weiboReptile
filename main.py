@@ -25,11 +25,11 @@ print 'Waiting to begin'
 
 #### ==========Time Control
 
-#while True:
- #   time.sleep(30)
-  #  if  time.localtime()[3]==startTime['hour'] and time.localtime()[4]==startTime['minute']:
-	#print "It's time to go"
-	#break
+while False:
+    time.sleep(30)
+    if  time.localtime()[3]==startTime['hour'] and time.localtime()[4]==startTime['minute']:
+	print "It's time to go"
+	break
     
 #### ==========Add acounts here.
 accounts=[\

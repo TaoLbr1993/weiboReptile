@@ -203,13 +203,19 @@ def get_info(content,data_file,cursor,filename):#get infomamtion according to co
                 #print 'time-->error'
                 final_time=time
             #print result.group(1).decode('utf-8').encode('cp936')
-            #data_file.write(final_name+' # '+final_time+' # '+final_contents+' \n')
-            #data_file.write('##################\n')            
-            sqlCommand='insert into '+filename+'(id,time,content) values(%s,%s,%s);'
+            data_file.write(final_name+' # '+final_time+' # '+final_contents+' \n')
+            data_file.write('##################\n')    
             param=(final_name,final_time,final_contents)
-            #cursor.execute('set names gbk;')
-            n=cursor.execute(sqlCommand,param)
+            sqlCommand="insert into %s (id,time,content) values('%s','%s','%s')" % (filename,final_name,final_time,final_contents)
 
+            #cursor.execute('set names gbk;')
+            try:
+                n=cursor.execute(sqlCommand)
+            except Exception:
+                print '####MySQL Error '+sqlCommand
+                cursor.execute("insert into %s (id,time,content) values('%s','%s','%s')" % (filename,0,0,0))
+                
+                
             #n to be used later
         #data_file.write(record[0]+' '+record[1]+' '+record[2]+'\n')
     #info=re.findall(pattern,sub_content)
