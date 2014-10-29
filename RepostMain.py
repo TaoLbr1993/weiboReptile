@@ -206,7 +206,7 @@ def RepostMain(accountlist,url_to_craw,checkey,figure,proxylist,startTime,pauseT
     conn.commit()
     cursor.close()
 
-
+    os.chdir(origdir)
 
     endtime=time.clock()
     time_running=seconds_to_hms(endtime-starttime)

@@ -203,9 +203,11 @@ def get_info(content,data_file,cursor,filename):#get infomamtion according to co
                 #print 'time-->error'
                 final_time=time
             #print result.group(1).decode('utf-8').encode('cp936')
+            final_name=final_name.replace("\'","\\'")
+            final_contents=final_contents.replace("\'","\\'")
+            #print final_contents
             data_file.write(final_name+' # '+final_time+' # '+final_contents+' \n')
             data_file.write('##################\n')    
-            param=(final_name,final_time,final_contents)
             sqlCommand="insert into %s (id,time,content) values('%s','%s','%s')" % (filename,final_name,final_time,final_contents)
 
             #cursor.execute('set names gbk;')
@@ -213,7 +215,7 @@ def get_info(content,data_file,cursor,filename):#get infomamtion according to co
                 n=cursor.execute(sqlCommand)
             except Exception:
                 print '####MySQL Error '+sqlCommand
-                cursor.execute("insert into %s (id,time,content) values('%s','%s','%s')" % (filename,0,0,0))
+                cursor.execute("insert into %s (id,time,content) values('%s','%s','%s')" % (filename,0,'2000-01-01 00:00:00','0'))
                 
                 
             #n to be used later

@@ -71,7 +71,7 @@ try:
 	if line[-1]=='\n':
 	    RepostMain.RepostMain(accountlist,line[:-1],checkey,figure,proxylist,startTime=startTime,pauseTime=pauseTime)
 	else:
-	    RepostMain.RepostMain(accountlist,line,checkey,figure,proxylist)
+	    RepostMain.RepostMain(accountlist,line,checkey,figure,proxylist,startTime=startTime,pauseTime=pauseTime)
 	print '####crawing over\n\n'
 	time.sleep(10)	  
 except Exception,e:
