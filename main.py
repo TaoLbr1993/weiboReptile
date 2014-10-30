@@ -42,40 +42,40 @@ accounts=[\
     #{'username':'buaatao4@163.com','pwd':'buaa12061021'},\
     #{'username':'buaatao5@163.com','pwd':'buaa12061021'}\
 ]
-#try:
-print '####Getting Proxys####'
-
-proxys=['http://110.4.12.173:80',\
-                'http://203.78.36.232:9000',\
-                'http://182.239.127.140:80',\
-                'http://182.239.95.137:80'] 
-#proxys=GetProxy.getProxys()
-#print 5
-print 'Amounts of proxys:',len(proxys)
-print '####Getting Proxys finished####' 
-
-for account in accounts:
-    accountlist.add(account)
-
-for proxy in proxys:
-    #if testProxy.testProxy(proxy):
-    proxylist.add(proxy)
-
-urlFile=open('url.txt','r')
-
-figure=0
-for line in open('url.txt','r'):
-    line=urlFile.readline()
-    print '####'+line
-    figure+=1
-    if line[-1]=='\n':
-	RepostMain.RepostMain(accountlist,line[:-1],checkey,figure,proxylist,startTime=startTime,pauseTime=pauseTime)
-    else:
-	RepostMain.RepostMain(accountlist,line,checkey,figure,proxylist,startTime=startTime,pauseTime=pauseTime)
-    print '####crawing over\n\n'
-    time.sleep(10)	
-	
-s='''except Exception,e:
+try:
+    print '####Getting Proxys####'
+    
+    proxys=['http://110.4.12.173:80',\
+	            'http://203.78.36.232:9000',\
+	            'http://182.239.127.140:80',\
+	            'http://182.239.95.137:80'] 
+    proxys=GetProxy.getProxys()
+    #print 5
+    print 'Amounts of proxys:',len(proxys)
+    print '####Getting Proxys finished####' 
+    
+    for account in accounts:
+	accountlist.add(account)
+    
+    for proxy in proxys:
+	#if testProxy.testProxy(proxy):
+	proxylist.add(proxy)
+    
+    urlFile=open('url.txt','r')
+    
+    figure=0
+    for line in open('url.txt','r'):
+	line=urlFile.readline()
+	print '####'+line
+	figure+=1
+	if line[-1]=='\n':
+	    RepostMain.RepostMain(accountlist,line[:-1],checkey,figure,proxylist,startTime=startTime,pauseTime=pauseTime)
+	else:
+	    RepostMain.RepostMain(accountlist,line,checkey,figure,proxylist,startTime=startTime,pauseTime=pauseTime)
+	print '####crawing over\n\n'
+	time.sleep(10)	
+	    
+except Exception,e:
     os.chdir(originPath)
     excfile=open('exception.txt','a')
     var=traceback.format_exc()
@@ -83,4 +83,4 @@ s='''except Exception,e:
     excfile.write('####'+time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())+'\n'+var)
     excfile.close()
     #print 'length of proxylist',proxylist.list
-    raise e'''
+    raise e
