@@ -157,7 +157,46 @@ def get_amounts_pages(content):#return amounts of pages according content(source
         return string.atoi(pages[len(pages)-1])
     except IndexError,e:
         return -1
-def get_info(content,data_file,cursor,filename):#get infomamtion according to content(source code) and put it into data_file
+
+def get_poname(content):
+    poname_pattern=re.compile(r"\$CONFIG\[\'onick\'\]=\'(.*?)\';")
+    res=poname_pattern.search(content)
+    if res==None:
+        return None;
+    else:
+        return res.group(1);
+    
+def get_po_time(content):
+    pattern=re.compile(r'''<a name=.*? target=\\"_blank\\" href=\\".*?\\" title=\\"(.*?)\\" date=\\".*?\\" class=\\"S_txt2\\" node\-type=\\"feed_list_item_date\\" suda-data=\\".*?\\">''')
+    res=pattern.search(content)
+    if res==None:
+        return '1993-08-19 00:00'
+    else:
+        return res.group(1)
+
+def get_repofrom(content):
+    pattern=re.compile(r'''\\/\\/<a href=\\".*?\\" usercard=\\".*?\\" >@(.*?)<\\/a>''')
+    res=pattern.search(content)
+    if res==None:
+        return None;
+    else:
+        return res.group(1)
+
+def character(content):
+    try:
+        #print content
+        if isinstance(content,unicode):
+            #print 'name-->unicode'
+            return content.encode('gb2312')
+        else:
+            #print 'name-->not unicode'
+            return content.decode('utf-8').encode('cp936')
+    except Exception,e:
+        #print 'name-->error'
+        #print '####CharacterError! ',content
+        return 'Warning!InvalidString'  
+        
+def get_info(content,data_file,cursor,filename,poname):#get infomamtion according to content(source code) and put it into data_file
 # 
 
     all_contents=content.split('<!--转发列表-->')
@@ -171,51 +210,30 @@ def get_info(content,data_file,cursor,filename):#get infomamtion according to co
         if result is not None:
             name=result.group(1)
             contents=result.group(2)
-            time=result.group(3)
-            try:
-                if isinstance(name,unicode):
-                    #print 'name-->unicode'
-                    final_name=name.encode('gb2312')
-                else:
-                    #print 'name-->not unicode'
-                    final_name=name.decode('utf-8').encode('cp936')
-            except UnicodeEncodeError,e:
-                #print 'name-->error'
-                final_name='Warning!InvalidString'
-            try:
-                if isinstance(contents,unicode):
-                    #print 'contents-->unicode'
-                    final_contents=contents.encode('gb2312')
-                else:
-                    #print 'contents-->not unicode'
-                    final_contents=contents.decode('utf-8').encode('cp936')
-            except UnicodeEncodeError,e:
-                #print 'contents-->error'
-                final_contents='Warning!InvalidString'
-            try:
-                if isinstance(time,unicode):
-                    #print 'time-->unicode'
-                    final_time=time.encode('gb2312')
-                else:
-                    #print 'time-->not unicode'
-                    final_time=time.decode('utf-8').encode('cp936')
-            except UnicodeEncodeError,e:
-                #print 'time-->error'
-                final_time=time
+            final_time=result.group(3)
+            repofrom=get_repofrom(contents)
+            if repofrom==None:
+                repofrom=poname;
+                
+            final_name=character(name)
+            final_contents=character(contents)
+            repofrom=character(repofrom)
+            #poname=character(poname)
             #print result.group(1).decode('utf-8').encode('cp936')
             final_name=final_name.replace("\'","\\'")
             final_contents=final_contents.replace("\'","\\'")
             #print final_contents
             data_file.write(final_name+' # '+final_time+' # '+final_contents+' \n')
-            data_file.write('##################\n')    
-            sqlCommand="insert into %s (id,time,content) values('%s','%s','%s')" % (filename,final_name,final_time,final_contents)
+            data_file.write('##################\n')  
+
+            sqlCommand="insert into %s (id,time,content,repofrom) values('%s','%s','%s','%s')" % (filename,final_name,final_time,final_contents,repofrom)
 
             #cursor.execute('set names gbk;')
             try:
                 n=cursor.execute(sqlCommand)
             except Exception:
                 print '####MySQL Error '+sqlCommand
-                cursor.execute("insert into %s (id,time,content) values('%s','%s','%s')" % (filename,0,'2000-01-01 00:00:00','0'))
+                cursor.execute("insert into %s (id,time,content,repofrom) values('%s','%s','%s','%s')" % (filename,0,'2000-01-01 00:00:00','0','Librian-'))
                 
                 
             #n to be used later

@@ -64,7 +64,7 @@ def RepostMain(accountlist,url_to_craw,checkey,figure,proxylist,startTime,pauseT
     #print 234
     try:
 	cursor.execute('set names gbk;')
-	cursor.execute('create table '+filename+' (id CHAR(50),time DATETIME, content TEXT) ENGINE=MyISAM DEFAULT CHARSET=gbk')
+	cursor.execute('create table '+filename+' (id CHAR(50),time DATETIME, content TEXT,repofrom CHAR(50),polvl TINYINT) ENGINE=MyISAM DEFAULT CHARSET=gbk')
     except Exception,e:
 	print "The Table exists\nuserid:"+userid+'\nWarning:This Information of Repost has been reptiled. The following reptiling will make data repeated.'
     #print 234234
@@ -101,6 +101,18 @@ def RepostMain(accountlist,url_to_craw,checkey,figure,proxylist,startTime,pauseT
     #dataFile.write(repost_info[0])
     pages=WeiboMain.get_amounts_pages(htmlContent)
     repost_time=time.strptime(WeiboMain.get_reposts_time(htmlContent),'%Y-%m-%d %H:%M')
+    poname=WeiboMain.get_poname(htmlContent)
+    potime=WeiboMain.get_po_time(htmlContent)
+    #print 'poname=',poname,'\n'
+    #poname=WeiboMain.character(poname)
+    #print 'po'
+    #print poname,'\n'
+    cursor.execute("insert into %s (id,time,polvl) values ('%s','%s',%s)" % (filename,WeiboMain.character(poname),potime,0))
+    
+    if poname==None:
+	print "####Warning!Can't find the poname."
+	runlogFile.write("####Warning!Can't find the poname.\n")
+	poname='Librian-'
     
     ####Some vars when reptiling.
     pagegap=1.5
@@ -137,7 +149,7 @@ def RepostMain(accountlist,url_to_craw,checkey,figure,proxylist,startTime,pauseT
 		if get_content_result['good']==False:
 		    denied+=1
 		status=get_content_result['good']&status
-		WeiboMain.get_info(htmlContent,dataFile,cursor=cursor,filename=filename)
+		WeiboMain.get_info(htmlContent,dataFile,cursor=cursor,filename=filename,poname=poname)
 		conn.commit()
 		
 		#### ==========TimeControl
